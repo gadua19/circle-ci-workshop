@@ -17,8 +17,7 @@ jobs:
            root: . #the folder to start the workspace from.
            paths: 
              - .
-
-  package:
+package:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
