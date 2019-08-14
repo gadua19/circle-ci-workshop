@@ -32,3 +32,9 @@ workflows:
       - package:
           requires:
             - test
+- persist_to_workspace:
+    root: test #the folder to start the workspace from.
+    paths: 
+      - .
+- attach_workspace:
+    at: /tmp/workspace
