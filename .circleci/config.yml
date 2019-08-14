@@ -16,7 +16,7 @@ jobs:
       - persist_to_workspace:
            root: . #the folder to start the workspace from.
            paths: 
-             - .
+               - .
 package:
     docker:
       - image: circleci/openjdk:8-jdk
@@ -33,7 +33,7 @@ package:
       - persist_to_workspace:
           root: build/libs #the folder to start the workspace from.
           paths: 
-             - .
+               - .
 workflows:
   version: 2
   two_job_flow:
