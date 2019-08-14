@@ -15,7 +15,8 @@ jobs:
           destination: prefix
       - persist_to_workspace:
     root: . #the folder to start the workspace from.
-    paths: .
+    paths: 
+      - .
 
   package:
     docker:
