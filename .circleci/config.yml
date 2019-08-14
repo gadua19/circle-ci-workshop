@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
@@ -13,3 +13,21 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: prefix
+  package:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run:
+      - store_test_results:
+          path: build/test-results
+      - store_artifacts:
+          path: build/libs
+          destination: prefix
+
+  two_job_flow:
+    jobs:
+      - test
+      - package:
+          requires:
+            - test
