@@ -14,9 +14,9 @@ jobs:
           path: build/libs
           destination: prefix
       - persist_to_workspace:
-    root: . #the folder to start the workspace from.
-    paths: 
-      - .
+           root: . #the folder to start the workspace from.
+           paths: 
+             - .
 
   package:
     docker:
@@ -32,9 +32,9 @@ jobs:
           path: build/libs
           destination: prefix
       - persist_to_workspace:
-    root: build/libs #the folder to start the workspace from.
-    paths: 
-      - .
+          root: build/libs #the folder to start the workspace from.
+          paths: 
+             - .
 workflows:
   version: 2
   two_job_flow:
