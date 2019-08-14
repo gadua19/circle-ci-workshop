@@ -24,7 +24,8 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: prefix
-
+workflows:
+  version: 2
   two_job_flow:
     jobs:
       - test
