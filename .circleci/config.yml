@@ -13,10 +13,16 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: prefix
+      - persist_to_workspace:
+    root: test #the folder to start the workspace from.
+    paths: .
+
   package:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
+      - attach_workspace:
+        at: .
       - checkout
       - run: gradle jar
       - store_test_results:
@@ -32,9 +38,4 @@ workflows:
       - package:
           requires:
             - test
-- persist_to_workspace:
-    root: test #the folder to start the workspace from.
-    paths: 
-      - .
-- attach_workspace:
-    at: /tmp/workspace
+            
